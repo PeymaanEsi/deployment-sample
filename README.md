@@ -24,6 +24,7 @@
 * > CMD ["gunicorn", "--bind", "0.0.0.0:8000", "**project.wsgi**"]
 * Copy the **docker-compose.yaml** and **docker-compose.debug.yaml**
 * Change the default names on both files
+* Rename the **.env.sample** to **.env** and change the values: (DB-USER-PASSWORD)
 ### Continue making the project...
 ## Phase two (Build)
 * Execute these commands:
