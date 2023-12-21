@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__
+
+# Django
+migrations/
+*.sqlite3
+*.sqlite3-journal
+
+# Docker
+.env

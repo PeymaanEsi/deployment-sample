@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["./manage.py", "runserver", "0.0.0.0:8000"]
+    container_name: app
+    depends_on:
+      - db
+    env_file:
+      - .env
+    expose:
+      - 8000
+    image: app:dev
+    networks:
+      - sample
+    ports:
+      - 80:8000
+    restart: always
+    volumes:
+      - ./project:/app
+  db:
+    env_file:
+      - .env
+    expose:
+      - 5432
+    image: postgres:alpine
+    networks:
+      - sample
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - sample_data:/var/lib/postgresql/data
+networks:
+ sample:
+volumes:
+  sample_data:
